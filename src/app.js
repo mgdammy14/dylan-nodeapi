@@ -9,9 +9,14 @@ app.get("/", async (req, res) => {
   res.json(rows);
 });
 
-app.get("/ping", async (req, res) => {
-  const result = await pool.query(`SELECT "hello world" as RESULT`);
+app.post("/", async (req, res) => {
+  const { nombreCompleto, dni, rifas } = req.body;
+  const result = await pool.query(
+    "INSERT INTO Participantes (nombreCompleto, dni, rifas) VALUES (?, ?, ?)",
+    [nombreCompleto, dni, rifas]
+  );
   console.log(result);
+  res.send("Datos insertados correctamente");
 });
 
 app.listen(PORT);
