@@ -1,8 +1,10 @@
 import express from "express";
 import { pool } from "./db.js";
 import { PORT } from "./config.js";
+import bodyParser from "body-parser";
 
 const app = express();
+app.use(bodyParser.json());
 
 app.get("/", async (req, res) => {
   const [rows] = await pool.query("SELECT * FROM Participantes");
@@ -15,7 +17,7 @@ app.post("/", async (req, res) => {
     "INSERT INTO Participantes (nombreCompleto, dni, rifas) VALUES (?, ?, ?)",
     [nombreCompleto, dni, rifas]
   );
-  console.log(result);
+  console.log(nombreCompleto);
   res.send("Datos insertados correctamente");
 });
 
