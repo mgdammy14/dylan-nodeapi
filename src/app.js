@@ -17,7 +17,7 @@ app.post("/", async (req, res) => {
     "INSERT INTO Participantes (nombreCompleto, dni, rifas) VALUES (?, ?, ?)",
     [nombreCompleto, dni, rifas]
   );
-  console.log(nombreCompleto);
+  console.log(result);
   res.send("Datos insertados correctamente");
 });
 
