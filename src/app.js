@@ -12,12 +12,12 @@ app.get("/", async (req, res) => {
 });
 
 app.get("/test", async (req, res) => {
-  const { nombreCompleto, dni, rifas } = req.body;
+  const { nombreCompleto, dni, rifas } = req.query;
   const result = await pool.query(
     "INSERT INTO Participantes (nombreCompleto, dni, rifas) VALUES (?, ?, ?)",
     [nombreCompleto, dni, rifas]
   );
-  console.log(result);
+  console.log(nombreCompleto, dni, rifas);
   res.send("Datos insertados correctamente");
 });
 
