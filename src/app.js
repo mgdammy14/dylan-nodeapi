@@ -11,12 +11,12 @@ app.get("/", async (req, res) => {
   res.json(rows);
 });
 
-app.post("/test", async (req, res) => {
-  const { nombreCompleto, dni, rifas } = req.body;
-  const result = await pool.query(
-    `INSERT INTO Participantes (nombreCompleto, dni, rifas) VALUES ("Clau", "8789323", 4)`
-  );
-  console.log(result);
+app.post("/", async (req, res) => {
+  // const { nombreCompleto, dni, rifas } = req.body;
+  // const result = await pool.query(
+  //   `INSERT INTO Participantes (nombreCompleto, dni, rifas) VALUES ("Clau", "8789323", 4)`
+  // );
+  // console.log(result);
   res.send("Datos insertados correctamente");
 });
 
