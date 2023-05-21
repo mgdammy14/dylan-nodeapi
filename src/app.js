@@ -1,9 +1,11 @@
 import express from "express";
+const cors = require("cors");
 import { pool } from "./db.js";
 import { PORT } from "./config.js";
 import bodyParser from "body-parser";
 
 const app = express();
+app.use(cors());
 app.use(bodyParser.json());
 
 app.get("/", async (req, res) => {
